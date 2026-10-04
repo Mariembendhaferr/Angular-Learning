@@ -1,0 +1,20 @@
+
+@for(event of events();track event.id)
+{
+<div class="card" style="width: 18rem;">
+  <img [src]="event.imageUrl" class="card-img-top" alt="not-found">
+  <div class="card-body">
+    <h5 class="card-title">{{event.titre}}</h5>
+    <p class="card-text">{{event.description}}</p>
+    <button class="btn btn-primary" (click)="incrementLikes(event)">{{event.nbLikes}} Likes</button>
+    <button class="btn btn-primary" (click)="addToFavorite(event)">Add to favorite</button>
+  </div>
+</div>
+}
+
+<ul>
+  @for(event of favoriteEvents();track event.id)
+  {
+    <li>{{event.titre}}</li>
+  }
+</ul>
